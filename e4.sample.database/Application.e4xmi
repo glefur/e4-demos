@@ -5,10 +5,10 @@
       <children xsi:type="advanced:Perspective" xmi:id="_LjnNcA7REeKyBZe5jQEMIg" elementId="e4.sample.database.perspective.database">
         <children xsi:type="basic:PartSashContainer" xmi:id="_QdTgQA7REeKyBZe5jQEMIg" elementId="e4.sample.database.partsashcontainer.main" horizontal="true">
           <children xsi:type="basic:PartStack" xmi:id="_mDkBkA7SEeKyBZe5jQEMIg" elementId="e4.sample.database.partstack.stack1" containerData="1">
-            <children xsi:type="basic:Part" xmi:id="_UWYDkA7REeKyBZe5jQEMIg" elementId="e4.sample.database.part.databasePart" contributionURI="bundleclass://e4.sample.database/e4.sample.database.parts.DatabasePart" label="Database"/>
+            <children xsi:type="basic:Part" xmi:id="_UWYDkA7REeKyBZe5jQEMIg" elementId="e4.sample.database.part.databasePart" label="Database"/>
           </children>
           <children xsi:type="basic:PartStack" xmi:id="_oZrkYA7SEeKyBZe5jQEMIg" elementId="e4.sample.database.partstack.stack2" containerData="2">
-            <children xsi:type="basic:Part" xmi:id="_ZT5tgA7REeKyBZe5jQEMIg" elementId="e4.sample.database.part.selection" contributionURI="bundleclass://e4.sample.database/e4.sample.database.parts.TablePart" label="Selection"/>
+            <children xsi:type="basic:Part" xmi:id="_ZT5tgA7REeKyBZe5jQEMIg" elementId="e4.sample.database.part.selection" label="Selection"/>
           </children>
         </children>
       </children>
