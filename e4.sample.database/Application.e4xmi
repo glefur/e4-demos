@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="ASCII"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_9pQIMA7MEeKxSZdpZVdVuQ" elementId="e4.sample.database.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_-gOMcA7MEeKxSZdpZVdVuQ" elementId="e4.sample.database.trimmedwindow.0" label="E4 for Databases" width="400" height="500"/>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_9pQIMA7MEeKxSZdpZVdVuQ" elementId="e4.sample.database.application">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_-gOMcA7MEeKxSZdpZVdVuQ" elementId="e4.sample.database.trimmedwindow.main" label="E4 for Databases" width="400" height="500">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_KhlvwA7REeKyBZe5jQEMIg" elementId="e4.sample.database.perspectivestack.main">
+      <children xsi:type="advanced:Perspective" xmi:id="_LjnNcA7REeKyBZe5jQEMIg" elementId="e4.sample.database.perspective.database">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_QdTgQA7REeKyBZe5jQEMIg" elementId="e4.sample.database.partsashcontainer.main" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_mDkBkA7SEeKyBZe5jQEMIg" elementId="e4.sample.database.partstack.stack1" containerData="1">
+            <children xsi:type="basic:Part" xmi:id="_UWYDkA7REeKyBZe5jQEMIg" elementId="e4.sample.database.part.databasePart" contributionURI="bundleclass://e4.sample.database/e4.sample.database.parts.DatabasePart" label="Database"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_oZrkYA7SEeKyBZe5jQEMIg" elementId="e4.sample.database.partstack.stack2" containerData="2">
+            <children xsi:type="basic:Part" xmi:id="_ZT5tgA7REeKyBZe5jQEMIg" elementId="e4.sample.database.part.selection" contributionURI="bundleclass://e4.sample.database/e4.sample.database.parts.TablePart" label="Selection"/>
+          </children>
+        </children>
+      </children>
+    </children>
+  </children>
   <addons xmi:id="_9pQIMQ7MEeKxSZdpZVdVuQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_9pQIMg7MEeKxSZdpZVdVuQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_9pQIMw7MEeKxSZdpZVdVuQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
