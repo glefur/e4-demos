@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+
+    <class 
+    	name="sample.acceleo.e4sampleblock.User" 
+    	table="USER"
+		dynamic-update="true">
+
+		<!-- Technical ID -->
+        <id name="id" type="string" unsaved-value="null" column="ID">
+            <generator class="uuid"/>
+        </id>
+
+		<!-- Properties -->
+        <property name="lastname">
+            <column name="LASTNAME"/>
+        </property>
+        <property name="firstname">
+            <column name="FIRSTNAME"/>
+        </property>
+        <property name="age">
+            <column name="AGE"/>
+        </property>
+
+
+		<!-- Associations -->
+
+		<!--  ______            _________
+			 | USER |- * -} * -| MESSAGE |
+			  ______            _________
+		-->
+		<set name="messages" table="USER_MESSAGE">
+			<key column="USER_ID"/>
+			<many-to-many 
+				class="sample.acceleo.e4sampleblock.Message"
+				column="MESSAGE_ID"/>
+	     </set>
+
+
+		<!-- Inheritance -->
+
+
+    </class>
+
+</hibernate-mapping>

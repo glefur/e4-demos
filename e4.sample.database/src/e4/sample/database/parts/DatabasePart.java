@@ -8,16 +8,16 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.inject.Named;
 
+import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
@@ -44,8 +44,7 @@ public class DatabasePart {
 	
 	@Inject
 	private ESelectionService selectionService;
-
-
+	
 	@PostConstruct
 	public void createControls(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
@@ -90,13 +89,16 @@ public class DatabasePart {
 		
 		
 		viewer.setLabelProvider(new AdapterFactoryLabelProvider(getAdapterFactory()));
-		ResourceSet rset = new ResourceSetImpl();
-		Resource resource = rset.getResource(URI.createPlatformPluginURI("e4.sample.database/resources/base.entity", true), true);
-		EObject eObject = resource.getContents().get(0);
-		viewer.setInput(eObject);
-		
 	}
 	
+	@Inject
+	void setSelection(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) Root selection) {
+		if (selection != null) {
+			viewer.setInput(selection);			
+		} 
+	}
+
+
 	private AdapterFactory getAdapterFactory() {
 		if (adapterFactory == null) {
 			adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);

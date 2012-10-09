@@ -13,11 +13,17 @@ import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -30,6 +36,21 @@ import org.obeonetwork.dsl.entity.Entity;
  */
 public class TablePart {
 
+	private static final List<User> users = new ArrayList<TablePart.User>();
+	static {
+		users.add(new User("Dupont", "Michel", 24));
+		users.add(new User("Dupond", "Thierry", 25));
+		users.add(new User("Egal", "Jocelyne", 32));
+		users.add(new User("Tomson", "Emma", 33));
+	}
+	
+	private static final List<Message> messages = new ArrayList<Message>();
+	static {
+		messages.add(new Message("22/09/2012", "Voici un premier message"));
+		messages.add(new Message("01/10/2012", "Voici un second message"));
+		messages.add(new Message("12/10/2012", "Pas très vivante cette base"));
+	}
+	
 	private TableViewer viewer;
 	private List<TableColumn> columns;
 	
@@ -39,11 +60,23 @@ public class TablePart {
 
 	@PostConstruct
 	public void createContents(Composite parent) {
-		viewer = new TableViewer(parent);
+		Composite container = new Composite(parent, SWT.NONE);
+		container.setLayout(new GridLayout(2, false));
+		viewer = new TableViewer(container);
+		viewer.setLabelProvider(new LabelProvider());
+		viewer.setContentProvider(new ArrayContentProvider());
 		Table table = (Table) viewer.getControl();
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		table.setLayoutData(new GridData(GridData.FILL_BOTH));
+		Composite panel = new Composite(container, SWT.NONE);
+		panel.setLayout(new GridLayout(1, false));
+		Button add = new Button(panel, SWT.PUSH);
+		add.setText("Add");
+		add.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		Button remove = new Button(panel, SWT.PUSH);
+		remove.setText("Remove");
+		remove.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 	  }
 
 	@Focus
@@ -58,7 +91,9 @@ public class TablePart {
 			if (selection instanceof StructuredSelection) {
 				Object sel = ((StructuredSelection) selection).getFirstElement();
 				if (sel instanceof Entity) {
-					populateColumns((Entity)sel);
+					Entity entity = (Entity)sel;
+					populateColumns(entity);
+					populateViewer(entity);
 				}
 			}
 		} 
@@ -81,4 +116,84 @@ public class TablePart {
 		viewer.refresh();
 	}
 
+	private void populateViewer(Entity entity) {
+		if ("User".equals(entity.getName())) {
+			viewer.setInput(users);
+		} else if ("Message".equals(entity.getName())) {
+			viewer.setInput(messages);
+		}
+	}
+
+	private static class Message {
+		String date;
+		String message;
+		
+		public Message(String date, String message) {
+			this.date = date;
+			this.message = message;
+		}
+	}
+	
+	private static class User {
+		String lastname;
+		String firstname;
+		int age;
+		public User(String lastname, String firstname, int age) {
+			this.lastname = lastname;
+			this.firstname = firstname;
+			this.age = age;
+		}
+		
+		
+	}
+	
+	private static class LabelProvider implements ITableLabelProvider {
+
+		@Override
+		public void addListener(ILabelProviderListener listener) { }
+
+		@Override
+		public void dispose() { 	}
+
+		@Override
+		public boolean isLabelProperty(Object element, String property) {
+			return false;
+		}
+
+		@Override
+		public void removeListener(ILabelProviderListener listener) { }
+
+		@Override
+		public Image getColumnImage(Object element, int columnIndex) {
+			return null;
+		}
+
+		@Override
+		public String getColumnText(Object element, int columnIndex) {
+			if (element instanceof Message) {
+				switch (columnIndex) {
+				case 0:
+					return ((Message)element).date;
+				case 1:
+					return ((Message)element).message;
+				default:
+					return ((Message)element).message;
+				}
+			} else if (element instanceof User) {
+				switch (columnIndex) {
+				case 0:
+					return ((User)element).lastname;
+				case 1:
+					return ((User)element).firstname;
+				case 2:
+					return String.valueOf(((User)element).age);					
+				default:
+					return ((User)element).lastname;
+				}
+			}
+			return null;
+		}
+		
+	}
+	
 }
