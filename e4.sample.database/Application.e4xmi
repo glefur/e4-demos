@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_9pQIMA7MEeKxSZdpZVdVuQ" elementId="e4.sample.database.application">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_9pQIMA7MEeKxSZdpZVdVuQ" elementId="e4.sample.database.application">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_-gOMcA7MEeKxSZdpZVdVuQ" elementId="e4.sample.database.trimmedwindow.main" label="E4 for Databases" width="400" height="500">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_KhlvwA7REeKyBZe5jQEMIg" elementId="e4.sample.database.perspectivestack.main">
       <children xsi:type="advanced:Perspective" xmi:id="_LjnNcA7REeKyBZe5jQEMIg" elementId="e4.sample.database.perspective.database">
@@ -13,7 +13,20 @@
         </children>
       </children>
     </children>
+    <mainMenu xmi:id="_QsDB4A8IEeKRj9_v0qzhIw" elementId="e4.sample.database.menu.Main">
+      <children xsi:type="menu:Menu" xmi:id="_eNaVIA8IEeKRj9_v0qzhIw" elementId="e4.sample.database.menu.file" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_q8Cj4A8IEeKRj9_v0qzhIw" elementId="e4.sample.database.handledmenuitem.0" label="Exit" command="_o6x6sBIREeKb_adGBp88lg"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_kNeaIA8IEeKRj9_v0qzhIw" elementId="e4.sample.database.menu.0" label="Database" mnemonics="">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_6_XW8BIQEeKb_adGBp88lg" elementId="e4.sample.database.handledmenuitem.0" label="Connect to database ..." command="_zlCMABITEeKb_adGBp88lg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_f0GqEBIREeKb_adGBp88lg" elementId="e4.sample.database.handledmenuitem.0" label="Disconnect from database"/>
+      </children>
+    </mainMenu>
   </children>
+  <handlers xmi:id="_ryNa0BIREeKb_adGBp88lg" elementId="e4.sample.database.handler.exit" contributionURI="bundleclass://e4.sample.database/e4.sample.database.handlers.ExitHandler" command="_o6x6sBIREeKb_adGBp88lg"/>
+  <handlers xmi:id="_y-fwcBITEeKb_adGBp88lg" elementId="e4.sample.database.handler.0" contributionURI="bundleclass://e4.sample.database/e4.sample.database.handlers.ConnectHandler" command="_zlCMABITEeKb_adGBp88lg"/>
+  <commands xmi:id="_o6x6sBIREeKb_adGBp88lg" elementId="e4.sample.database.command.exit" commandName="Exit"/>
+  <commands xmi:id="_zlCMABITEeKb_adGBp88lg" elementId="e4.sample.database.command.connect" commandName="Connect"/>
   <addons xmi:id="_9pQIMQ7MEeKxSZdpZVdVuQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_9pQIMg7MEeKxSZdpZVdVuQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_9pQIMw7MEeKxSZdpZVdVuQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

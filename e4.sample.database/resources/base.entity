@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oent:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:oent="http://www.obeonetwork.org/dsl/entity/2.0.0" xmi:id="_cE5hkA7pEeKBQI9JZjeIow" createdOn="2012-10-05T14:37:34.849+0200" modifiedOn="2012-10-05T14:40:26.424+0200">
+  <blocks xmi:id="_ddbawA7pEeKBQI9JZjeIow" createdOn="2012-10-05T14:38:03.050+0200" modifiedOn="2012-10-05T14:40:26.424+0200" name="e4.sample.block">
+    <entities xmi:id="_hI61EA7pEeKBQI9JZjeIow" createdOn="2012-10-05T14:38:08.866+0200" modifiedOn="2012-10-05T14:40:26.424+0200" name="User">
+      <ownedAttributes xmi:id="_jRayoA7pEeKBQI9JZjeIow" createdOn="2012-10-05T14:38:23.179+0200" modifiedOn="2012-10-05T14:39:44.448+0200" name="lastname" multiplicity="1">
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_m9QLMA7pEeKBQI9JZjeIow" createdOn="2012-10-05T14:38:23.179+0200" modifiedOn="2012-10-05T14:39:47.348+0200" name="firstname" multiplicity="1">
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_oJG6UA7pEeKBQI9JZjeIow" createdOn="2012-10-05T14:38:55.861+0200" modifiedOn="2012-10-05T14:39:01.295+0200" name="age">
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5FXAawKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedReferences xmi:id="_wqqrsA7pEeKBQI9JZjeIow" createdOn="2012-10-05T14:39:53.067+0200" modifiedOn="2012-10-05T14:40:26.424+0200" name="messages" multiplicity="0..*" type="_p6PgwA7pEeKBQI9JZjeIow"/>
+    </entities>
+    <entities xmi:id="_p6PgwA7pEeKBQI9JZjeIow" createdOn="2012-10-05T14:39:07.724+0200" modifiedOn="2012-10-05T14:39:41.221+0200" name="Message">
+      <ownedAttributes xmi:id="_rBs4EA7pEeKBQI9JZjeIow" createdOn="2012-10-05T14:39:15.217+0200" modifiedOn="2012-10-05T14:39:41.220+0200" name="date" multiplicity="1">
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-E6wKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+      <ownedAttributes xmi:id="_tTTHQA7pEeKBQI9JZjeIow" createdOn="2012-10-05T14:39:30.484+0200" modifiedOn="2012-10-05T14:39:36.635+0200" name="message">
+        <type href="platform:/plugin/org.obeonetwork.dsl.environment.common/model/obeo.environment#_s5F-EKwKEd2XLNOhkJIazw"/>
+      </ownedAttributes>
+    </entities>
+  </blocks>
+</oent:Root>
