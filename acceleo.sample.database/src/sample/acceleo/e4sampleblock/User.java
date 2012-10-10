@@ -33,14 +33,14 @@ public class User implements Serializable {
 	public static final String PROP_AGE = "age";
 	
 	/**
-     * Constant representing the name of the field messages.
-     */
-	public static final String PROP_MESSAGES = "messages";
-	
-	/**
      * Constant representing the name of the field firstname.
      */
 	public static final String PROP_FIRSTNAME = "firstname";
+	
+	/**
+     * Constant representing the name of the field messages.
+     */
+	public static final String PROP_MESSAGES = "messages";
 	
     /**
      * Automatic primary key.
@@ -58,14 +58,14 @@ public class User implements Serializable {
 	protected Integer age;
 
     /**
-     * Field messages.
-     */
-	protected Collection<Message> messages;
-
-    /**
      * Field firstname.
      */
 	protected String firstname;
+
+    /**
+     * Field messages.
+     */
+	protected Collection<Message> messages;
 
 	/**
 	 * Default constructor.
@@ -95,15 +95,15 @@ public class User implements Serializable {
 	 * Constructor with all parameters initialized.
 	 * @param lastname. 
 	 * @param age. 
-	 * @param messages. 
 	 * @param firstname. 
+	 * @param messages. 
 	 */
-	public User(String lastname, Integer age, Collection<Message> messages, String firstname) {
+	public User(String lastname, Integer age, String firstname, Collection<Message> messages) {
 		this();
 		this.lastname = lastname;
 		this.age = age;
-		this.messages.addAll(messages);
 		this.firstname = firstname;
+		this.messages.addAll(messages);
 	}
 
 	/**
